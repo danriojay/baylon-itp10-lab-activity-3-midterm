@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Registration</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/app.js" defer></script>
+</head>
+<body>
+  <main>
+    <h1>IT Seminar Registration</h1>
+    <p>Complete all fields to validate your registration details.</p>
+
+    <form id="registrationForm" novalidate>
+      <div class="field">
+        <label for="fullName">Full name</label>
+        <input type="text" id="fullName" name="fullName"
+               autocomplete="name" required
+               aria-describedby="fullNameError">
+        <p id="fullNameError" class="error" aria-live="polite"></p>
+      </div>
+
+      <div class="field">
+        <label for="studentNumber">Student number</label>
+        <input type="text" id="studentNumber" name="studentNumber"
+               placeholder="24-1234-123" required
+               aria-describedby="studentNumberError">
+        <p id="studentNumberError" class="error" aria-live="polite"></p>
+      </div>
+
+      <div class="field">
+        <label for="email">Email address</label>
+        <input type="email" id="email" name="email"
+               autocomplete="email" required
+               aria-describedby="emailError">
+        <p id="emailError" class="error" aria-live="polite"></p>
+      </div>
+
+      <div class="field">
+        <label for="mobileNumber">Mobile number</label>
+        <input type="tel" id="mobileNumber" name="mobileNumber"
+               autocomplete="tel" placeholder="09171234567" required
+               aria-describedby="mobileNumberError">
+        <p id="mobileNumberError" class="error" aria-live="polite"></p>
+      </div>
+
+      <div class="field">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password"
+               autocomplete="new-password" minlength="8" required
+               aria-describedby="passwordHint passwordError passwordFeedback">
+        <p id="passwordHint" class="hint">
+          Use at least eight characters, one uppercase letter,
+          one digit, and one of @, $, or !. No whitespace.
+        </p>
+        <p id="passwordError" class="error" aria-live="polite"></p>
+        <p id="passwordFeedback" aria-live="polite"></p>
+      </div>
+
+      <div class="field">
+        <label for="confirmPassword">Confirm password</label>
+        <input type="password" id="confirmPassword" name="confirmPassword"
+               autocomplete="new-password" required
+               aria-describedby="confirmPasswordError">
+        <p id="confirmPasswordError" class="error" aria-live="polite"></p>
+      </div>
+
+      <div class="field">
+        <label for="course">Course</label>
+        <select id="course" name="course" required
+                aria-describedby="courseError">
+          <option value="" selected>Select your course</option>
+          <option value="BSIT">BSIT</option>
+          <option value="BSCS">BSCS</option>
+        </select>
+        <p id="courseError" class="error" aria-live="polite"></p>
+      </div>
+
+      <div class="field">
+        <div class="checkbox-row">
+          <input type="checkbox" id="terms" name="terms" required
+                 aria-describedby="termsError">
+          <label for="terms">I agree to the terms and conditions.</label>
+        </div>
+        <p id="termsError" class="error" aria-live="polite"></p>
+      </div>
+
+      <div class="buttons">
+        <button type="submit" id="registerBtn">Register</button>
+        <button type="reset" id="resetBtn">Reset</button>
+      </div>
+    </form>
+
+    <p id="successMessage" role="status"></p>
+
+    <section id="registrationSummary" hidden
+             aria-labelledby="summaryHeading">
+      <h2 id="summaryHeading">Registration Summary</h2>
+      <dl>
+        <dt>Full name</dt>
+        <dd id="summaryName"></dd>
+
+        <dt>Student number</dt>
+        <dd id="summaryStudentNumber"></dd>
+
+        <dt>Email address</dt>
+        <dd id="summaryEmail"></dd>
+
+        <dt>Mobile number</dt>
+        <dd id="summaryMobileNumber"></dd>
+
+        <dt>Course</dt>
+        <dd id="summaryCourse"></dd>
+      </dl>
+    </section>
+  </main>
+</body>
+</html>
